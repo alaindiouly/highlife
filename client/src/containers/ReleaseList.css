@@ -1,0 +1,4 @@
+.releaseList {
+  display: flex;
+  flex-wrap: wrap;
+}
