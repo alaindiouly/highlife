@@ -14,7 +14,7 @@ function ReleaseList ( {releases} ) {
 
   return (
     <div className="releaseList">
-      {allReleases}
+      {allReleases.slice(0,19)}
     </div>
   );
 }

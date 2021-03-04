@@ -16,11 +16,6 @@ function App() {
       return selectedReleases;
     })
 
-    // REMOVE
-    .then(releases=>{
-      console.log(releases[0]);
-    })
-
   }, []);
 
   return (
