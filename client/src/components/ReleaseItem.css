@@ -1,6 +1,37 @@
-/* .wrapper{
+.release{
   display: flex;
-  align-items: center;
-  min-width: 300px;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* min-width: 100px; */
+  /* max-width: 100px; */
   margin: 20px auto;
+  position: relative;
+}
+
+.release__cover {
+  width: 200px;
+}
+
+.release__community {
+  text-align: left;
+}
+
+/* .title {
+
+}
+
+.label {
+
+}
+
+.country {
+
+}
+
+.have {
+
+}
+
+.want {
+
 } */
