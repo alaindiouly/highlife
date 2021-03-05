@@ -1,8 +1,10 @@
 import './App.css';
 import './css-reset.css';
 import React, { useEffect , useState, createContext } from "react";
-import ReleaseList from "./containers/ReleaseList"
 import ApiService from './ApiService';
+import ReleaseList from "./containers/ReleaseList"
+import Header from "./components/Header"
+import Hero from "./components/Hero"
 
 const moods = {
   happy: 'happy',
@@ -26,8 +28,8 @@ function App() {
 
   return (
     <div className="App">
-        <h1>HEADERS</h1>
-        <h1>HERO</h1>
+        <Header/>
+        <Hero/>
         <h1>NAVBAR</h1>
         <h1>AFROBEAT IS HERE!</h1>
         <MoodContext.Provider value={moods.happy}>

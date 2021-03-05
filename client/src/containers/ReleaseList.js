@@ -7,7 +7,7 @@ import {MoodContext} from '../App'
 function ReleaseList ( props ) {
 
   const mood = useContext(MoodContext);
-  console.log(mood);
+
 
   const allReleases = props.releases.map((release)=>
     <ReleaseItem
