@@ -5,17 +5,22 @@ import ApiService from './ApiService';
 import ReleaseList from "./containers/ReleaseList"
 import Header from "./components/Header"
 import Hero from "./components/Hero"
+import Modal from 'react-modal'
+
+Modal.setAppElement('#root');
 
 
+// REMOVE
 const moods = {
   happy: 'happy',
   sad: 'sad'
 }
-
 export const MoodContext = createContext(moods);
 
 function App() {
   const [releases, setReleases] = useState([]);
+  const [modalIsOpen, setmodalisOpen] = useState(false);
+  const [release, setRelease] = useState("");
 
   useEffect(()=> {
     ApiService.getSearch()
@@ -27,16 +32,9 @@ function App() {
   }, []);
 
   const handleClick = (release) => {
-
-    const clone = releases.map(el=>el.id);
-    console.log(clone);
-    // if (clone.includes(movie.id)) {
-    //   const temp = selectedMovies.filter(el=> el.id!==movie.id);
-    //   setSelectedMovies(temp);
-    // } else {
-    //   setSelectedMovies([...selectedMovies, movie])
-    // }
-
+    setmodalisOpen(true);
+    setRelease(release);
+    console.log(release);
   }
 
   return (
@@ -54,6 +52,30 @@ function App() {
             ></ReleaseList>
           </div>
         </MoodContext.Provider>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={()=> setmodalisOpen(false)} className="modal"
+          style={
+            {
+              overlay: {
+                backgroundColor:'grey',
+                opacity: 0.8
+              },
+              content: {
+                color: 'black'
+              }
+            }
+          }
+        >
+          <h2>{release.title}</h2>
+          <p>Modal Body</p>
+          <div className="modal__button">
+            <button
+            onClick={()=> setmodalisOpen(false)} className="modal--close">
+             X
+            </button>
+          </div>
+        </Modal>
     </div>
   );
 }
