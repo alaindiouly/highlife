@@ -24,8 +24,20 @@ function App() {
       setReleases(selectedReleases)
       return selectedReleases;
     })
-
   }, []);
+
+  const handleClick = (release) => {
+
+    const clone = releases.map(el=>el.id);
+    console.log(clone);
+    // if (clone.includes(movie.id)) {
+    //   const temp = selectedMovies.filter(el=> el.id!==movie.id);
+    //   setSelectedMovies(temp);
+    // } else {
+    //   setSelectedMovies([...selectedMovies, movie])
+    // }
+
+  }
 
   return (
     <div className="App">
@@ -35,7 +47,11 @@ function App() {
         <h1>AFROBEAT IS HERE!</h1>
         <MoodContext.Provider value={moods.happy}>
           <div className="list">
-            <ReleaseList id="list" releases={releases}/>
+            <ReleaseList
+              id="list"
+              releases={releases}
+              handleClick={handleClick}
+            ></ReleaseList>
           </div>
         </MoodContext.Provider>
     </div>

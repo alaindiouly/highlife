@@ -4,7 +4,7 @@ import './ReleaseItem.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 
-function ReleaseItem ({release}) {
+function ReleaseItem ({release, handleClick}) {
   //TO DO: link the release id to the artist(s)
 
 
@@ -15,10 +15,9 @@ function ReleaseItem ({release}) {
       <img
         src={release.cover_image}
         alt="" className="release__cover release--icon"
-        // onClick={() => handleClick(release)}
+        onClick={() => handleClick(release)}
       />
       <FontAwesomeIcon icon={faEye}
-        // onClick={() => handleClick(movie)}
         className="add--icon"
       />
       <div className="title">
@@ -30,9 +29,6 @@ function ReleaseItem ({release}) {
       <div className="year">
         {release.year}
       </div>
-      {/* <div className="country">
-        {release.country}
-      </div> */}
       <div className="release__community">
         <div className="have">
           Have:

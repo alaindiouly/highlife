@@ -4,16 +4,17 @@ import React, { useContext } from "react";
 import {MoodContext} from '../App'
 
 
-function ReleaseList ( props ) {
+function ReleaseList ( {releases, handleClick} ) {
 
   const mood = useContext(MoodContext);
 
 
-  const allReleases = props.releases.map((release)=>
+  const allReleases = releases.map((release)=>
     <ReleaseItem
       className="item"
       key={release.id}
       release={release}
+      handleClick={handleClick}
       />
   );
 
