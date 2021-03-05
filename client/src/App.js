@@ -67,8 +67,29 @@ function App() {
             }
           }
         >
-          <h2>{release.title}</h2>
-          <p>Modal Body</p>
+          <div className="wrapper">
+            <div className="wrapper__content">
+              <div className="content__cover">
+                <img
+                  src={release.cover_image}
+                  alt="" className="cover__image"
+                />
+              </div>
+              <div className="content__details">
+                <p>{release.year}</p>
+
+                <h1>{release.title}</h1>
+
+                <button className="details--add-collection">ADD TO COLLECTION</button>
+
+
+
+              </div>
+            </div>
+            <div className="wrapper__video">{release.title}
+
+            </div>
+          </div>
           <div className="modal__button">
             <button
             onClick={()=> setmodalisOpen(false)} className="modal--close">
