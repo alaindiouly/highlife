@@ -12,6 +12,24 @@
   width: 200px;
 }
 
+.release__cover:hover {
+  transform: scale(1.1);
+}
+
+.release--icon:hover + .add--icon {
+  display: block;
+}
+
+.add--icon {
+  position: absolute;
+  left: 70px;
+  top: 90px;
+  display:  none;
+  color: white;
+  font-size: 3rem;
+}
+
+
 .release__community {
   text-align: left;
 }

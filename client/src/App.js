@@ -6,6 +6,7 @@ import ReleaseList from "./containers/ReleaseList"
 import Header from "./components/Header"
 import Hero from "./components/Hero"
 
+
 const moods = {
   happy: 'happy',
   sad: 'sad'
@@ -30,7 +31,7 @@ function App() {
     <div className="App">
         <Header/>
         <Hero/>
-        <h1>NAVBAR</h1>
+        <div className="App__navbar">NAVBAR</div>
         <h1>AFROBEAT IS HERE!</h1>
         <MoodContext.Provider value={moods.happy}>
           <div className="list">
