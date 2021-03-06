@@ -1,5 +1,5 @@
 import './Hero.css';
-import hero from '../speaker-cropped.jpg'
+import hero from '../../speaker-cropped.jpg'
 
 
 function Hero () {

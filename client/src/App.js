@@ -2,9 +2,9 @@ import './App.css';
 import './css-reset.css';
 import React, { useEffect , useState, createContext } from "react";
 import ApiService from './ApiService';
-import ReleaseList from "./containers/ReleaseList"
-import Header from "./components/Header"
-import Hero from "./components/Hero"
+import ReleaseList from "./containers/releaseList/ReleaseList"
+import Header from "./components/header/Header"
+import Hero from "./components/hero/Hero"
 import Modal from 'react-modal'
 
 Modal.setAppElement('#root');

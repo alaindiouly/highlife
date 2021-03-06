@@ -1,5 +1,5 @@
 import './Header.css';
-import logo from '../discogs-white.png'
+import logo from '../../discogs-white.png'
 
 console.log(logo);
 
