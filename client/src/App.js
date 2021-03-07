@@ -1,6 +1,6 @@
 import './App.css';
 import './css-reset.css';
-import React, { useEffect , useState, createContext } from "react";
+import React, { useEffect , useState} from "react";
 import ApiService from './ApiService';
 import ReleaseList from "./containers/releaseList/ReleaseList"
 import Header from "./components/header/Header"
@@ -10,17 +10,24 @@ import Modal from 'react-modal'
 Modal.setAppElement('#root');
 
 
-// REMOVE
-const moods = {
-  happy: 'happy',
-  sad: 'sad'
-}
-export const MoodContext = createContext(moods);
-
 function App() {
+
+  const initialRelease = {
+    country: '',
+    cover_image: '',
+    title: '',
+    id: 0,
+    year: '',
+    label: [''],
+    community: {
+      have: 0,
+      want: 0
+    }
+  }
+
   const [releases, setReleases] = useState([]);
   const [modalIsOpen, setmodalisOpen] = useState(false);
-  const [release, setRelease] = useState("");
+  const [releaseState, setreleaseState] = useState(initialRelease);
 
   useEffect(()=> {
     ApiService.getSearch()
@@ -33,8 +40,13 @@ function App() {
 
   const handleClick = (release) => {
     setmodalisOpen(true);
-    setRelease(release);
-    console.log(release);
+    setreleaseState(prevState => {return {...prevState, ...release}});
+    // setreleaseState(release);
+    // setreleaseState({...initialRelease, ...release});
+  }
+
+  const closeModal = () => {
+    setmodalisOpen(false);
   }
 
   return (
@@ -43,15 +55,13 @@ function App() {
         <Hero/>
         <div className="App__navbar">NAVBAR</div>
         <h1>AFROBEAT IS HERE!</h1>
-        <MoodContext.Provider value={moods.happy}>
-          <div className="list">
-            <ReleaseList
-              id="list"
-              releases={releases}
-              handleClick={handleClick}
-            ></ReleaseList>
-          </div>
-        </MoodContext.Provider>
+        <div className="list">
+          <ReleaseList
+            id="list"
+            releases={releases}
+            handleClick={handleClick}
+          ></ReleaseList>
+        </div>
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={()=> setmodalisOpen(false)} className="modal"
@@ -71,28 +81,30 @@ function App() {
             <div className="wrapper__content">
               <div className="content__cover">
                 <img
-                  src={release.cover_image}
+                  src={releaseState.cover_image}
                   alt="" className="cover__image"
                 />
               </div>
               <div className="content__details">
-                <p>{release.year}</p>
+                <p>{releaseState.year}</p>
+                <p>{releaseState.label[0]}</p>
 
-                <h1>{release.title}</h1>
+                <h1>{releaseState.title}</h1>
+                <p>{releaseState.country}</p>
 
                 <button className="details--add-collection">ADD TO COLLECTION</button>
-
-
-
+                <p>Have: {releaseState.community.have}</p>
+                <p>Want: {releaseState.community.want}</p>
               </div>
             </div>
-            <div className="wrapper__video">{release.title}
-
+            <div className="wrapper__video">{releaseState.title}
             </div>
           </div>
           <div className="modal__button">
             <button
-            onClick={()=> setmodalisOpen(false)} className="modal--close">
+            // onClick={()=> setmodalisOpen(false)}
+            onClick={()=> closeModal()}
+            className="modal--close">
              X
             </button>
           </div>

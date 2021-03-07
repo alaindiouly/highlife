@@ -1,13 +1,9 @@
 import ReleaseItem from '../../components/releaseItem/ReleaseItem'
 import './ReleaseList.css'
-import React, { useContext } from "react";
-import {MoodContext} from '../../App'
 
 
 function ReleaseList ( {releases, handleClick} ) {
 
-  //REMOVE
-  const mood = useContext(MoodContext);
 
   const allReleases = releases.map((release)=>
     <ReleaseItem
