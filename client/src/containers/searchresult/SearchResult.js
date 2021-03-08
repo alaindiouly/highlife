@@ -1,5 +1,5 @@
 import ReleaseItem from '../../components/releaseItem/ReleaseItem'
-import './ReleaseList.css'
+import './SearchResult.css'
 
 
 function ReleaseList ( {releases, handleClick} ) {

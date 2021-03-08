@@ -1,0 +1,22 @@
+.Landing {
+  text-align: center;
+}
+
+.Landing__navbar{
+   color: red;
+   height: 10vh;
+   padding: 20px;
+}
+
+h1 {
+  font-weight: 900;
+  color:black;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+
+
+

@@ -1,8 +1,8 @@
-import './Hero.css';
+import './HeroSearch.css';
 import hero from '../../speaker-cropped.jpg'
 
 
-function Hero () {
+function HeroSearch () {
   return (
     <div className="hero">
       {/* <div className="header__search">SEARCH</div> */}
@@ -12,4 +12,4 @@ function Hero () {
   );
 }
 
-export default Hero;
+export default HeroSearch;
